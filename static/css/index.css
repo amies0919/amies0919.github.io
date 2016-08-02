@@ -2,6 +2,24 @@ body {
     padding: 0;
     margin: 0;
 }
+.page1 {
+    background: url("../img/bg1.jpg") no-repeat center;
+}
+.page2 {
+    background: url("../img/bg2.jpg") no-repeat center;
+}
+.page3 {
+    background: url("../img/bg3.jpg") no-repeat center;
+}
+.page4 {
+    background: url("../img/bg4.jpg") no-repeat center;
+}
 .page {
-    background-color: #fff;
+    background-size: cover;
+}
+.content{
+    background: #fff;
+    width: 60%;
+    margin-left: 20%;
+    height: 100%;
 }
