@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="static/js/lib/require.js"></script>
     <script type="text/javascript" src="static/js/lib/jquery.js"></script>
+    <script type="text/javascript" src="static/js/lib/angular.js"></script>
+    <script type="text/javascript" src="static/js/lib/components/js/components.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/index.css"/>
     <script type="text/javascript" src="static/js/index.js"></script>
 </head>
 <body>
-    <div>222222</div>
+     <div ng-controller="coreController">
+      <div amies-about type="name"></div>
+      <div class="amies-about" type="name"></div>
+       <amies-about type='name'></amies-about>
+       <amies-about type='email'></amies-about>
+     </div>
 </body>
 </html>

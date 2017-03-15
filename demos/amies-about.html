@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../static/js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../static/js/lib/angular.js"></script>
+    <script type="text/javascript" src="../static/js/lib/components/js/components.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css"/>
+    <script type="text/javascript" src="../static/js/index.js"></script>
+</head>
+<body>
+     <div ng-controller="coreController">
+      {{message}}
+       <amies-dialog type='normal' ng-hide="isHideDialog" on-close="closeDialog(message)">i'm a dialog! {{names}}</amies-dialog>
+       <amies-about type='name' msg="personalMsg"></amies-about>
+       <amies-about type='email' msg="personalMsg"></amies-about>
+       <amies-clock type='normal' format='format'></amies-clock>
+
+       <amies-tabs>
+        <amies-pane title="first" ng-model="first">
+          <p>11111</p>
+        </amies-pane>
+        <amies-pane title="second" ng-model="second">
+          <p>22222</p>
+        </amies-pane>
+      </amies-tabs>
+     </div>
+</body>
+</html>
