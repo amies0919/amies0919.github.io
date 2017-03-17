@@ -114,15 +114,20 @@ angular.module('components', [])
       replace:false,
       link:function(scope,elem,attr,controllers){
         scope.newList = [];
-        scope.getDbTarget = function(list){
-            console.log(list);
+        scope.getDbTarget = function($event,list){
             if(list){
               scope.newList.push(list);
             }
         }
+        scope.delEle = function($event,item){
+          scope.newList.forEach(function(ele,i){
+            console.log(ele,i);
+          })
+
+        }
         scope.$watch('newList',function(value){
             if(value){
-              console.log(value);
+              
             }
         },true)
       }
