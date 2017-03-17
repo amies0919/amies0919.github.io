@@ -102,4 +102,31 @@ angular.module('components', [])
     };
   })
 
+  .directive('amiesDb',function(){
+    return{
+      restrict: 'AEC',
+      scope:{
+        lists:'=list'
+      },
+      templateUrl:function(elem,attr){
+        return '../static/js/lib/components/template/amies-db/amies-db.html'
+      },
+      replace:false,
+      link:function(scope,elem,attr,controllers){
+        scope.newList = [];
+        scope.getDbTarget = function(list){
+            console.log(list);
+            if(list){
+              scope.newList.push(list);
+            }
+        }
+        scope.$watch('newList',function(value){
+            if(value){
+              console.log(value);
+            }
+        },true)
+      }
+    }
+  });
+
  

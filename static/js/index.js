@@ -4,6 +4,20 @@
 angular.module('app', ['components'])
  
 .controller('coreController', function($scope, $locale) {
+    $scope.dbs = [{
+        name:'aaa',
+        code:'1'
+    },{
+        name:'bbb',
+        code:'2'
+    },{
+        name:'ccc',
+        code:'3'
+    },{
+        name:'ddd',
+        code:'4'
+    }]
+
     $scope.personalMsg={
       "name":"amies",
       "email":"amies.shen@gmail.com"

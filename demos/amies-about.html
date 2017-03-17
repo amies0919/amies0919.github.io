@@ -13,6 +13,12 @@
 </head>
 <body>
      <div ng-controller="coreController">
+      <br>
+      <div class='box-a'>
+        <amies-db list="dbs"></amies-db>
+      </div>
+      <br>
+      <br>
       {{message}}
        <amies-dialog type='normal' ng-hide="isHideDialog" on-close="closeDialog(message)">i'm a dialog! {{names}}</amies-dialog>
        <amies-about type='name' msg="personalMsg"></amies-about>
