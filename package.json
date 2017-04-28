@@ -1,0 +1,33 @@
+{
+  "name": "amies-angularjs",
+  "version": "0.1.0",
+  "description": "my own angularjs ",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-testem": "^0.5.22",
+    "sinon": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amies0919/amies0919.github.io.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "amies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amies0919/amies0919.github.io/issues"
+  },
+  "homepage": "https://github.com/amies0919/amies0919.github.io#readme"
+}
