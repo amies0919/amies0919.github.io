@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+  	<title>index</title>
+    </head>
+    <body>
+	<script>
+	    function get(url){
+		return new Promise(function(resolve, reject){
+		    var req = new XMLHttpRequest();
+		    req.open('GET', url);
+		    req.onload = function() {
+		    	if(req.status == 200) {
+			    resolve(req.response);
+			}else{
+			    reject(Error(req.statusText));
+			}
+		    };
+		    req.onerror = function() {
+			reject(Error("Network Error"));
+		    };
+	
+		    req.send();
+		});
+	    }
+	    let url1 = 'http://rapapi.org/mockjsdata/19469/primers/story.json';
+	    function getJSON(url){
+		return get(url).then(JSON.parse);
+	    }
+	    getJSON(url1).then(function(story){
+		return getJSON(story.chapterUrls[0]);
+	    }).then(function(chapter1){
+		console.log('got chapter1!', chapter1);
+	    })
+	</script> 
+    </body>
+</html>
