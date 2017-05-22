@@ -3,35 +3,36 @@
     <head>
         <meta charset="utf-8" />
   	<title>index</title>
+	<link rel="stylesheet" href="./src/css/styles.css" >
     </head>
     <body>
+	<div class="network-fake">
+	    <label><input type = "checkbox" /> Fake network delay </label>
+	</div>
+	<div class="story"></div>
+	<svg class="spinner" viewBox="0 0 100 100" width="20" height="20">
+	    <circle cx="50" cy="50" r="42" transform="rotate(-90,50,50)" />
+	</svg>
+	<script src="./src/js/utils.js"></script>
 	<script>
-	    function get(url){
-		return new Promise(function(resolve, reject){
-		    var req = new XMLHttpRequest();
-		    req.open('GET', url);
-		    req.onload = function() {
-		    	if(req.status == 200) {
-			    resolve(req.response);
-			}else{
-			    reject(Error(req.statusText));
-			}
-		    };
-		    req.onerror = function() {
-			reject(Error("Network Error"));
-		    };
-	
-		    req.send();
-		});
-	    }
+	  
 	    let url1 = 'http://rapapi.org/mockjsdata/19469/primers/story.json';
-	    function getJSON(url){
-		return get(url).then(JSON.parse);
-	    }
-	    getJSON(url1).then(function(story){
-		return getJSON(story.chapterUrls[0]);
-	    }).then(function(chapter1){
-		console.log('got chapter1!', chapter1);
+	    // 同步版本的完全异步版本	
+	    getJson(url1).then(function(story){
+		addHtmlToPage(story.heading);		
+		return story.chapterUrls.reduce(function(sequence, chapterUrl) {
+		    return sequence.then(function() {
+			return getJson(chapterUrl);
+		    }).then(function(chapter){
+			addHtmlToPage(chapter.html);
+		    });
+	 	}, Promise.resolve())
+	    }).then(function(){
+		addTextToPage("All done");
+	    }).catch(function(err){
+		addTextToPage('Argh,broken:'+ err.message);
+	    }).then(function(){
+		document.querySelector('.spinner').style.display = 'none';	
 	    })
 	</script> 
     </body>
