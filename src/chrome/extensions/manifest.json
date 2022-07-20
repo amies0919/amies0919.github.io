@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "网站性能",
+    "description": "帮助你查看你网站的性能",
+    "version": "1.0",
+    "permissions": [
+        "storage", "activeTab", "tabs", "scripting"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "readIcon.png",
+            "32": "readIcon.png",
+            "64": "readIcon.png",
+            "128": "readIcon.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "commands": {
+        "_execute_browser_sction": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Opens popup.html"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "readIcon.png",
+        "32": "readIcon.png",
+        "64": "readIcon.png",
+        "128": "readIcon.png"
+    }, 
+    "options_page": "options.html"
+}
